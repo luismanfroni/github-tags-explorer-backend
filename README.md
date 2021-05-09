@@ -8,6 +8,12 @@ This repo is the backend part of the project, to run the frontend you will need 
 
 ## Configuration
 
+### Frontend
+
+This application to fully work needs the [frontend part](https://github.com/luismanfroni/github-tags-explorer-frontend), otherwise it can't retrieve users OAuth token.
+
+When authenticated, the backend will redirect user to frontend `/auth` page, the base frontend url is configured at `FRONTEND_URL` in the `.env` file.
+
 ### Github API
 
 This application needs access to Github API via OAuth, you need to [create a new OAuth app](https://github.com/settings/applications/new) and configure the secret (`GITHUB_SECRET`) and client(`GITHUB_CLIENT`) on `.env` file.
