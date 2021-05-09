@@ -1,0 +1,19 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "password": "e49427530f4f054645a6042b4f03e4c6b5227660efc61969ce4e462f454bcc19",
+  "database": "githubtags",
+  "entities": [
+    "dist/**/*.entity{.ts,.js}"
+  ],
+  "migrationsTableName": "migration",
+  "migrations": [
+    "dist/migration/*{.ts,.js}"
+  ],
+  "cli": {
+    "migrationsDir": "src/migration"
+  },
+  "ssl": false
+}

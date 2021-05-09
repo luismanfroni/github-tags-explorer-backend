@@ -1,13 +1,17 @@
 import { NestFactory } from "@nestjs/core";
+import { ConfigurationService } from "config/config.service";
 import { AppModule } from "./app.module";
 import * as cookieParser from "cookie-parser";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import genOrmConfig from "utils/genOrmConfig";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors();
   app.setGlobalPrefix("api");
   app.use(cookieParser());
+  const config = app.get(ConfigurationService);
+  if (!config.isProduction()) {
   const document = SwaggerModule.createDocument(
     app,
     new DocumentBuilder()
@@ -17,6 +21,8 @@ async function bootstrap() {
   );
 
   SwaggerModule.setup("docs", app, document);
-  await app.listen(3000);
+  }
+  genOrmConfig(config.getTypeOrmConfig());
+  await app.listen(config.getPort());
 }
 bootstrap();
