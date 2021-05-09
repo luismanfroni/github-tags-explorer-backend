@@ -8,6 +8,12 @@ This repo is the backend part of the project, to run the frontend you will need 
 
 ## Configuration
 
+### Github API
+
+This application needs access to Github API via OAuth, you need to [create a new OAuth app](https://github.com/settings/applications/new) and configure the secret (`GITHUB_SECRET`) and client(`GITHUB_CLIENT`) on `.env` file.
+
+When creating you should use your server hostname in `Authorization callback URL`, since Github validates the callback URLs.
+
 ### Database
 
 If you have a postgres server installed, you should change the database configuration on `.env` file according to your server.
