@@ -25,6 +25,7 @@ When creating you should use your server hostname in `Authorization callback URL
 If you have a postgres server installed, you should change the database configuration on `.env` file according to your server.
 
 If you don't want to install postgres, i created a Docker script to create a database instance on `scripts/initDb.js` that will run on command `yarn init:db`, it should stop, delete the configured docker instance, create a new one based on `postgres:lastest` image, create database and run migrations.
+It does need the project to be builded first with `yarn build` since it uses typeorm to make migrations.
 
 ## Installation
 
